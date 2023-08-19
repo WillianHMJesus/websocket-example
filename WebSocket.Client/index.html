@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<title>WebSocket - Home</title>
+  	<meta charset="utf-8">
+  	<meta name="description" content="Página do WebSocket Client">
+</head>
+<body>
+	<div id="app" />
+
+	<script>
+		const websocket = new WebSocket("wss://localhost:7066/ws");
+
+		websocket.onmessage = (event) => {
+			var div = document.getElementById("app");
+			var paragraph = document.createElement("p");
+			paragraph.innerText = event.data;
+			div.innerHTML = '';			
+			div.appendChild(paragraph);
+		}
+	</script>
+</body>
+</html>
